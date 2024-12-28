@@ -8,7 +8,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ec6b34e5-cff7-4597-af6d-3f82ea1f823e" name="Changes" comment="add to commit">
+    <list default="true" id="ec6b34e5-cff7-4597-af6d-3f82ea1f823e" name="Changes" comment="some changes in program">
       <change afterPath="$PROJECT_DIR$/.idea/.idea.API/.idea/vcs.xml" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/.idea/.idea.API/.idea/workspace.xml" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/.idea/.idea.OwnProject/.idea/.name" afterDir="false" />
@@ -51,6 +51,7 @@
     &quot;.NET Launch Settings Profile.API: http.executor&quot;: &quot;Run&quot;,
     &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
@@ -107,7 +108,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1735418279883</updated>
-      <workItem from="1735418280805" duration="1692000" />
+      <workItem from="1735418280805" duration="3868000" />
     </task>
     <task id="LOCAL-00001" summary="creating repo and add file">
       <option name="closed" value="true" />
@@ -117,7 +118,15 @@
       <option name="project" value="LOCAL" />
       <updated>1735418585088</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="some changes in program">
+      <option name="closed" value="true" />
+      <created>1735420203400</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1735420203400</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -147,6 +156,7 @@
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
     <MESSAGE value="creating repo and add file" />
     <MESSAGE value="add to commit" />
-    <option name="LAST_COMMIT_MESSAGE" value="add to commit" />
+    <MESSAGE value="some changes in program" />
+    <option name="LAST_COMMIT_MESSAGE" value="some changes in program" />
   </component>
 </project>
