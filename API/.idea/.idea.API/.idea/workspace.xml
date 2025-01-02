@@ -8,21 +8,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ec6b34e5-cff7-4597-af6d-3f82ea1f823e" name="Changes" comment="some changes in program">
-      <change afterPath="$PROJECT_DIR$/.idea/.idea.API/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/.idea.API/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/.idea.OwnProject/.idea/.name" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/API/bin/Debug/net8.0/API.dll" beforeDir="false" afterPath="$PROJECT_DIR$/API/bin/Debug/net8.0/API.dll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/API/bin/Debug/net8.0/API.exe" beforeDir="false" afterPath="$PROJECT_DIR$/API/bin/Debug/net8.0/API.exe" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/API/bin/Debug/net8.0/API.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/API/bin/Debug/net8.0/API.pdb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/API/obj/Debug/net8.0/API.AssemblyInfo.cs" beforeDir="false" afterPath="$PROJECT_DIR$/API/obj/Debug/net8.0/API.AssemblyInfo.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/API/obj/Debug/net8.0/API.AssemblyInfoInputs.cache" beforeDir="false" afterPath="$PROJECT_DIR$/API/obj/Debug/net8.0/API.AssemblyInfoInputs.cache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/API/obj/Debug/net8.0/API.dll" beforeDir="false" afterPath="$PROJECT_DIR$/API/obj/Debug/net8.0/API.dll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/API/obj/Debug/net8.0/API.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/API/obj/Debug/net8.0/API.pdb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/API/obj/Debug/net8.0/apphost.exe" beforeDir="false" afterPath="$PROJECT_DIR$/API/obj/Debug/net8.0/apphost.exe" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/API/obj/Debug/net8.0/ref/API.dll" beforeDir="false" afterPath="$PROJECT_DIR$/API/obj/Debug/net8.0/ref/API.dll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/API/obj/Debug/net8.0/refint/API.dll" beforeDir="false" afterPath="$PROJECT_DIR$/API/obj/Debug/net8.0/refint/API.dll" afterDir="false" />
-    </list>
+    <list default="true" id="ec6b34e5-cff7-4597-af6d-3f82ea1f823e" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -33,6 +19,10 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="mock://C:/Users/taras/source/repos/OwnProject/API/API/obj/Debug/net8.0/API.AssemblyInfo.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://C:/Users/taras/source/repos/OwnProject/API/API/obj/Debug/net8.0/API.AssemblyInfo.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="MetaFilesCheckinStateConfiguration" checkMetaFiles="true" />
   <component name="ProjectColorInfo">{
@@ -108,7 +98,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1735418279883</updated>
-      <workItem from="1735418280805" duration="3868000" />
+      <workItem from="1735418280805" duration="4122000" />
     </task>
     <task id="LOCAL-00001" summary="creating repo and add file">
       <option name="closed" value="true" />
@@ -126,7 +116,15 @@
       <option name="project" value="LOCAL" />
       <updated>1735420203400</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="added user controller">
+      <option name="closed" value="true" />
+      <created>1735422441926</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1735422441926</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -157,6 +155,7 @@
     <MESSAGE value="creating repo and add file" />
     <MESSAGE value="add to commit" />
     <MESSAGE value="some changes in program" />
-    <option name="LAST_COMMIT_MESSAGE" value="some changes in program" />
+    <MESSAGE value="added user controller" />
+    <option name="LAST_COMMIT_MESSAGE" value="added user controller" />
   </component>
 </project>

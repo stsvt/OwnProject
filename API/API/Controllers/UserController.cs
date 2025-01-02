@@ -19,7 +19,7 @@ public class UserController: ControllerBase
     [HttpGet]
     public async Task<ActionResult<IEnumerable<User>>> GetUser()
     {
-        var users = await _context.UsersData.ToListAsync();
+        var users = await _context.Users.ToListAsync();
         return Ok(users);
     }
 }

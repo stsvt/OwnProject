@@ -18,6 +18,6 @@ namespace API.Data
             base.OnModelCreating(modelBuilder);
         }
 
-        public DbSet<User> UsersData { get; set; }
+        public DbSet<User> Users { get; set; }
     }
 }

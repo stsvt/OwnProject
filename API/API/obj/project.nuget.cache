@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "PN8a0hBqIm5Ox5NRe2Vv36VaUSL1E4tORP74j+zKRo/x7gVkWRtLRaZQVmw4x1Zf20xQs2XY4a7U8FnPe8+DNg==",
+  "dgSpecHash": "6i+JjHgORoE97bnEESDUM+G8gcP1UikXn+3uR4ltrXuaqejui468Q2BeQgZ+DmBkdjla9dfpXS9XNN+p8Hv9jQ==",
   "success": true,
-  "projectFilePath": "C:\\Users\\taras\\source\\repos\\OwnProject\\API\\API\\API.csproj",
+  "projectFilePath": "D:\\source\\repos\\OwnProject\\API\\API\\API.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\taras\\.nuget\\packages\\humanizer.core\\2.14.1\\humanizer.core.2.14.1.nupkg.sha512",
     "C:\\Users\\taras\\.nuget\\packages\\microsoft.bcl.asyncinterfaces\\7.0.0\\microsoft.bcl.asyncinterfaces.7.0.0.nupkg.sha512",
