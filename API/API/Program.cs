@@ -9,6 +9,11 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
+builder.Services.AddLogging(options =>
+{
+    options.AddConsole();
+});
+
 builder.Services.AddDbContext<DataContext>(opt =>
 {
     opt.UseNpgsql(builder.Configuration.GetConnectionString("Default"));
