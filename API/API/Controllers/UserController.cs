@@ -1,4 +1,5 @@
-﻿using API.Data;
+﻿using System.Text.RegularExpressions;
+using API.Data;
 using API.Entities;
 using API.Models;
 using Microsoft.AspNetCore.Mvc;
@@ -25,12 +26,18 @@ public class UserController: ControllerBase
     }
 
     [HttpPost("sign-up")]
-    public async Task<ActionResult<SignInReturnUserModel>> CreateUser([FromBody] SignUpUserModel model)
+    public async Task<ActionResult<LoginReturnUserModel>> CreateUser([FromBody] RegisterUserModel model)
     {
+        if (!IsValidPassword(model.Password))
+        {
+            return BadRequest("Password must be 8-20 characters and must include letters and digits.");
+        }
+        
         if (!ModelState.IsValid)
         {
             return BadRequest(ModelState);
         }
+        
         var user = new User
         {
             Name = model.Name,
@@ -44,7 +51,7 @@ public class UserController: ControllerBase
         await _context.Users.AddAsync(user);
         await _context.SaveChangesAsync();
 
-        return new SignInReturnUserModel()
+        return new LoginReturnUserModel()
         {
             Username = model.Username,
             Email = model.Email
@@ -52,7 +59,7 @@ public class UserController: ControllerBase
     }
 
     [HttpPost("sign-in")]
-    public async Task<ActionResult<SignInReturnUserModel>> LoginUser([FromBody] SignInUserModel signinmodel)
+    public async Task<ActionResult<LoginReturnUserModel>> LoginUser([FromBody] LoginUserModel signinmodel)
     {
         if (!ModelState.IsValid)
         {
@@ -63,10 +70,25 @@ public class UserController: ControllerBase
             .Where(user => user.Email == signinmodel.Email)
             .FirstOrDefaultAsync();
         
-        return new SignInReturnUserModel()
+        return new LoginReturnUserModel()
         {
             Username = user.Username,
             Email = user.Email
         };
+    }
+
+    private bool IsValidPassword(string password)
+    {
+        if (password.Length < 8 || password.Length > 20)
+        {
+            return false;
+        }
+        
+        if (!Regex.IsMatch(password, @"a-zA-Z") || !Regex.IsMatch(password, @"\d"))
+        {
+            return false;
+        }
+
+        return true;
     }
 }
