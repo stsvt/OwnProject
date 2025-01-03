@@ -12,10 +12,12 @@ namespace API.Controllers;
 public class UserController: ControllerBase
 {
     private readonly DataContext _context;
+    private readonly ILogger<UserController> _logger;
     
-    public UserController(DataContext context)
+    public UserController(DataContext context, ILogger<UserController> logger)
     {
         _context = context;
+        _logger = logger;
     }
     
     [HttpGet]
