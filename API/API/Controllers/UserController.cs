@@ -4,6 +4,8 @@ using API.Entities;
 using API.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Metadata.Conventions;
+using Microsoft.EntityFrameworkCore.Metadata.Internal;
 
 namespace API.Controllers;
 
@@ -30,11 +32,19 @@ public class UserController: ControllerBase
     [HttpPost("sign-up")]
     public async Task<ActionResult<LoginReturnUserModel>> CreateUser([FromBody] RegisterUserModel model)
     {
+        var isEmailExists = _context.Users.Any(u => u.Email == model.Email);
+        var isUsernameExists = _context.Users.Any(u => u.Username == model.Username);
+        
+        if (isEmailExists || isUsernameExists)
+        {
+            return BadRequest("User with this email or username is already existed.");
+        }
+        
         if (!IsValidPassword(model.Password))
         {
             return BadRequest("Password must be 8-20 characters and must include letters and digits.");
         }
-        
+            
         if (!ModelState.IsValid)
         {
             return BadRequest(ModelState);
@@ -78,7 +88,6 @@ public class UserController: ControllerBase
             Email = user.Email
         };
     }
-
     private bool IsValidPassword(string password)
     {
         if (password.Length < 8 || password.Length > 20)
@@ -86,11 +95,12 @@ public class UserController: ControllerBase
             return false;
         }
         
-        if (!Regex.IsMatch(password, @"a-zA-Z") || !Regex.IsMatch(password, @"\d"))
+        if (!Regex.IsMatch(password, @"[a-zA-Z]") || !Regex.IsMatch(password, @"\d"))
         {
             return false;
         }
 
         return true;
     }
+    
 }
