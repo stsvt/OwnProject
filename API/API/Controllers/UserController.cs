@@ -1,6 +1,7 @@
 ﻿using System.Text.RegularExpressions;
 using API.Data;
 using API.Entities;
+using API.Interfaces;
 using API.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -15,15 +16,16 @@ public class UserController: ControllerBase
 {
     private readonly DataContext _context;
     private readonly ILogger<UserController> _logger;
-    
-    public UserController(DataContext context, ILogger<UserController> logger)
+    private readonly IPasswordHasherService _passwordHasher;
+    public UserController(DataContext context, ILogger<UserController> logger, IPasswordHasherService passwordHasher)
     {
         _context = context;
         _logger = logger;
+        _passwordHasher = passwordHasher;
     }
     
     [HttpGet]
-    public async Task<ActionResult<IEnumerable<User>>> GetUser()
+    public async Task<ActionResult<IEnumerable<User>>> GetUser() 
     {
         var users = await _context.Users.ToListAsync();
         return Ok(users);
@@ -36,19 +38,15 @@ public class UserController: ControllerBase
         var isUsernameExists = _context.Users.Any(u => u.Username == model.Username);
         
         if (isEmailExists || isUsernameExists)
-        {
             return BadRequest("User with this email or username is already existed.");
-        }
         
         if (!IsValidPassword(model.Password))
-        {
             return BadRequest("Password must be 8-20 characters and must include letters and digits.");
-        }
-            
+        
         if (!ModelState.IsValid)
-        {
             return BadRequest(ModelState);
-        }
+
+        var passwordHash = _passwordHasher.Hash(model.Password);
         
         var user = new User
         {
@@ -56,8 +54,7 @@ public class UserController: ControllerBase
             Lastname = model.Lastname,
             Username = model.Username,
             Email = model.Email,
-            Password = model.Password
-
+            Password = passwordHash 
         };
         
         await _context.Users.AddAsync(user);
@@ -66,7 +63,7 @@ public class UserController: ControllerBase
         return new LoginReturnUserModel()
         {
             Username = model.Username,
-            Email = model.Email
+            Email = model.Email 
         };
     }
 
@@ -74,14 +71,17 @@ public class UserController: ControllerBase
     public async Task<ActionResult<LoginReturnUserModel>> LoginUser([FromBody] LoginUserModel signinmodel)
     {
         if (!ModelState.IsValid)
-        {
             return BadRequest(ModelState);
-        }
-
+        
         var user = await _context.Users
             .Where(user => user.Email == signinmodel.Email)
             .FirstOrDefaultAsync();
+
+        var result = _passwordHasher.Verify(user.Password, signinmodel.Password);
         
+        if (!result)
+            return Unauthorized("Wrong email or password");
+
         return new LoginReturnUserModel()
         {
             Username = user.Username,
@@ -91,15 +91,11 @@ public class UserController: ControllerBase
     private bool IsValidPassword(string password)
     {
         if (password.Length < 8 || password.Length > 20)
-        {
             return false;
-        }
         
         if (!Regex.IsMatch(password, @"[a-zA-Z]") || !Regex.IsMatch(password, @"\d"))
-        {
             return false;
-        }
-
+        
         return true;
     }
     
